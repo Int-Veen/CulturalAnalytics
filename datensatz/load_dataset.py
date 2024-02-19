@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import os
 from PIL import Image
-
+##### ALTER DATENSATZ - ANDERE DATEI NUTZEN -- load kaggle data
 sns.set_theme(style="whitegrid")
 
 dataset = load_dataset("huggan/wikiart")
