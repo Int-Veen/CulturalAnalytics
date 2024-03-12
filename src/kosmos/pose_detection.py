@@ -107,16 +107,21 @@ plt.show()
 ####################################################################
 ###                 DATAFRAME PASSIV, ACTIVE, NORMAL             ###
 ####################################################################
-
+print("Hier beginnt: Passiv - False ")
 print(df[df['passive_verb'] == False]['kosmos_gender'].value_counts())
+print("Hier beginnt: Passiv - True ")
 print(df[df['passive_verb'] == True]['kosmos_gender'].value_counts())
 
+print("Hier beginnt: Aktiv - False ")
 print(df[df['active_verb'] == False]['kosmos_gender'].value_counts())
+print("Hier beginnt: Aktiv - True ")
 print(df[df['active_verb'] == True]['kosmos_gender'].value_counts())
 
+print("Hier beginnt: Neutral - False ")
 print(df[df['neutral_verb'] == False]['kosmos_gender'].value_counts())
 print("Hier beginnt: Neutral - True ")
 print(df[df['neutral_verb'] == True]['kosmos_gender'].value_counts())
+
 # DIAGRAMM PASSIV
 gender_category = ['unknown','female-and-male', 'female', 'male',]
 gender_category_counts = [603, 307, 296, 33]

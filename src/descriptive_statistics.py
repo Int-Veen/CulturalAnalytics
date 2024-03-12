@@ -29,23 +29,22 @@ portrait_count = df['genre'].str.contains('portrait', case=False, na=False).sum(
 print(f"Anzahl der Bilder vom Genre 'portrait', einschließlich Kombinationen: {portrait_count}")
 
 
-
 #DESCRIPTIVE STATISTICS - DIAGRAMM MIT DER VERTEILUNG DER UNTERSCHIEDLICHEN EPOCHEN FÜR AKTBILDER
 
 # Filtern der Daten, um nur die Zeilen mit "nude painting (nu)" im "genre" zu behalten
 nudes_df = pd.read_csv('../data/filtered_genres_nude_painting.csv')
 
 # Zählen der verschiedenen Epochen/Stile
-style_counts = nudes_df['style'].value_counts().reset_index()
+style_counts = nudes_df['style'].value_counts().nlargest(25).reset_index()
 style_counts.columns = ['style', 'count']
-s = style_counts[style_counts["count"] > 40]
+#s = style_counts[style_counts["count"] > 24]
 
 #Schriftgröße
 sns.set(font_scale=1.5)
 
 #Seaborn-Barplots
 plt.figure(figsize=(10, 15))
-sns.barplot(x='count', y='style', data=s, color="skyblue", linewidth=0.2)
+sns.barplot(x='count', y='style', data = style_counts, color="skyblue", linewidth=0.2)
 
 # Titel und Achsenbeschriftungen
 plt.title('Verteilung der Epochen auf Aktbilder', fontsize=20)
@@ -63,5 +62,6 @@ plt.tight_layout()
 plt.savefig("../out/styleplot_pitch.png")
 
 plt.show()
+############
 
 
